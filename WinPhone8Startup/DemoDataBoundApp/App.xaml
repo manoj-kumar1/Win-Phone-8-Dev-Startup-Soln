@@ -1,0 +1,32 @@
+﻿<Application x:Class="DemoDataBoundApp.App" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" 
+             xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             d1p1:Ignorable="d" 
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+  <!--Application Resources-->
+  <Application.Resources>
+    <local:LocalizedStrings xmlns:local="clr-namespace:DemoDataBoundApp" x:Key="LocalizedStrings" />
+    <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:DemoDataBoundApp.Common" />
+    <Color x:Key="GNForegroundColor">#FF000000</Color>
+    <Color x:Key="GNBackgroundColor">#FFFFFFFF</Color>
+    <Color x:Key="GNTextLightColor">#666666</Color>
+    
+    <sys:Double x:Key="PivotHeaderFontSize">40</sys:Double>
+    <Thickness x:Key="GNPivotItemMargin">12,5,12,0</Thickness>
+    <SolidColorBrush x:Key="GNBackgroundBrush" Color="{StaticResource GNBackgroundColor}" />
+    <SolidColorBrush x:Key="GNForegroundBrush" Color="{StaticResource GNForegroundColor}" />
+    <Style x:Key="GNTextStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextBlockBase}">
+        <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilyNormal}" />
+        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}" />
+        <Setter Property="Foreground" Value="{StaticResource GNForegroundBrush}" />
+    </Style>
+  </Application.Resources>
+  <Application.ApplicationLifetimeObjects>
+    <!--Required object that handles lifetime events for the application-->
+    <shell:PhoneApplicationService Launching="Application_Launching" Closing="Application_Closing" Activated="Application_Activated" Deactivated="Application_Deactivated" />
+  </Application.ApplicationLifetimeObjects>
+</Application>
